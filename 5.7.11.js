@@ -3,12 +3,10 @@ $(document).ready(function() {
         var coordenadas;
         
         function showPosition(position) {
-            console.log("11111,555555");
             coordenadas = "Latitude: " + position.coords.latitude +
             "<br>Longitude: " + position.coords.longitude;
             
-            $("#coord").html(coordenadas);
-            console.log("2222222");           
+            $("#coord").html(coordenadas);        
             
             var map = L.map('map').setView([position.coords.latitude, position.coords.longitude],13);
 
