@@ -20,12 +20,18 @@ $(document).ready(function() {
                 
         function getLocation() {
             if (Modernizr.geolocation) {
-                console.log("111111");
                 navigator.geolocation.getCurrentPosition(showPosition);
-                
-            } else {
-                alert("no lo soporta");
-                //pollifis
+                //Si el navegador lo soporta se metera por aqui y utilizara la funcion navigator.geolocation que soporta.
+            } else {                
+                /*Si el navegador no lo soporta, se ejecutara las lineas del geo.js que he añadido para polyfill:
+                    // Exports
+                    if (!navigator.geolocation) {
+                        navigator.geolocation = new GeolocationPolyfill();
+                    }
+                    
+                    Ejecutamos la misma linea pero ahora para utilizar navigator.geolocation, tiramos del script del polyfill.
+                */
+                navigator.geolocation.getCurrentPosition(showPosition);
             }
         }
                
